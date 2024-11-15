@@ -24,28 +24,36 @@ const nums ={
 // };
 
 function intToRoman(num){
-   const arr = []; 
-   const array = [];
-   const arr0 = [];
-    i = 0;
-    while(i < num.toString().length){
-        array.push(nums[num.toString().charAt(i)]);
-        arr.push(num.toString().charAt(i))
-    i++
-    };        
-    i0 = 0;
-    let n = ''
-    while(arr.length !== 0){
-        let len = arr.length;
-       
-        arr.shift()
-    i0++
-    }
-    array.reverse();
+    const arr = []; 
+    const array = [];
+    const arr0 = [];
     
-    console.log(array.join(' '));
-    console.log(arr.join(' '))
+    for(let i = 0; i<num.toString().length; i++){// each digits push in array
+        arr.push(num.toString().charAt(i));
+    };
+
+    let numder = '';
+    i = 0;
+    
+    while(arr.length > 0){
+ //   console.log(arr.join(' '));
+        first = arr[0];//  take the first digit in array with us number
+        arr.shift();// remove first digit to see how length remains, of course I understand that I can just subtract 1, but it's my first medium, i want to leave everything as is 
+        let len = arr.length;
+        number = first;// do var with first digit
+
+    w = 0;
+        while(w < len){ // append to var(number) 0 
+            number+= `0`
+        w++
+        }
+
+        array.push(Number(number));// and push it into array in number
+//    console.log(`first digit: ${first}\narray: ${arr}\nlength: ${len}\n`);
+    i++
+    }
+    
     console.log(num);
-    console.log(arr0)
+    console.log(array);
 };
 intToRoman(1994);
