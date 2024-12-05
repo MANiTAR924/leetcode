@@ -1,13 +1,13 @@
 function indexFirstwordWithSpecialPrefix (sentence, searchWord){
     const sentenceInArray = sentence.split(' ');
-    output = -1;
+    index = -1; 
+    const indexInArray = []
     sentenceInArray.forEach(el => {
-        if (el.split(searchWord).length === 2){
-            output = sentenceInArray.indexOf(el)+1;
+        if (el.split('').slice(0,searchWord.length).join('') === searchWord){
+            indexInArray.push(sentenceInArray.indexOf(el)+1);  
+            index = indexInArray[0]
         };
     });
-    console.log(output)
-    return output
+    return index
 };
-indexFirstwordWithSpecialPrefix("you dream duck you corona dumb google i", "d") //output must be 2 because 2 it's first word with searchWord in the form of prefix
-
+indexFirstwordWithSpecialPrefix("abcad", "ad") 
